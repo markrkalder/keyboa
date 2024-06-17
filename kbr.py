@@ -3,6 +3,7 @@ import board
 
 from kmk.kmk_keyboard import KMKKeyboard as _KMKKeyboard
 from kmk.scanners import DiodeOrientation
+from kmk.modules.split import SplitSide
 
 class KMKKeyboard(_KMKKeyboard):
     col_pins = (
@@ -17,8 +18,7 @@ class KMKKeyboard(_KMKKeyboard):
 
     row_pins = (board.GP29, board.GP28, board.GP27, board.GP26, board.GP15)
     diode_orientation = DiodeOrientation.COL2ROW
-    #data_pin = board.GP1
-    #data_pin2 = board.GP0
+    split_side = SplitSide.RIGHT
 
     #fmt: off
     coord_mapping = [

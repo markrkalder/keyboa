@@ -11,7 +11,7 @@ keyboard.debug_enabled = True
 
 keyboard.modules.append(Layers())
 keyboard.extensions.append(MediaKeys())
-split = Split(split_type=SplitType.UART, split_side=SplitSide.LEFT, use_pio=True, uart_flip=False)
+split = Split(split_type=SplitType.UART, split_side=keyboard.split_side, data_pin=board.GP1, data_pin2=board.GP0, use_pio=True, uart_flip=False)
 keyboard.modules.append(split)
 
 # fmt:off
@@ -28,7 +28,7 @@ keyboard.keymap = [
        KC.TAB,        KC.Q,          KC.W,          KC.E,          KC.R,          KC.T,          KC.END,                                                KC.PGUP,     KC.Y,          KC.U,          KC.UP,          KC.O,          KC.P,          KC.BSLS,
        KC.CAPS,       KC.PLUS,          KC.EQL,          KC.LBRC,          KC.RBRC,          KC.G,          KC.HOME,                                      KC.PGDN,     KC.H,          KC.LEFT,       KC.DOWN,        KC.RIGHT,      KC.SCLN,       KC.QUOT,
        KC.LCTL,       KC.Z,          KC.X,          KC.MUTE,          KC.VOLD,          KC.VOLU,                                                                     KC.MRWD,          KC.MPLY,          KC.MFFD,        KC.DOT,        KC.SLSH,       KC.RSFT,
-                      KC.LGUI,       KC1.LALT,       KC.BSPC,       KC.CAPS,        KC.E,      KC.LBRC,        KC.EQL,                            KC.EQL,      KC.RBRC,     KC.RALT,       KC.ENT,        KC.SPC,         KC.E,          KC.RBRC,
+                      KC.LGUI,       KC.LALT,       KC.BSPC,       KC.CAPS,        KC.E,      KC.LBRC,        KC.EQL,                            KC.EQL,      KC.RBRC,     KC.RALT,       KC.ENT,        KC.SPC,         KC.E,          KC.RBRC,
    ]
 ]
 # fmt:on
