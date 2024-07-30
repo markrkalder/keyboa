@@ -19,6 +19,8 @@ class KMKKeyboard(_KMKKeyboard):
     row_pins = (board.GP29, board.GP28, board.GP27, board.GP26, board.GP15)
     diode_orientation = DiodeOrientation.COL2ROW
     split_side = SplitSide.LEFT
+    rx = board.RX
+    tx = board.TX
 
     #fmt: off
     coord_mapping = [
