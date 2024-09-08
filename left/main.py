@@ -5,16 +5,17 @@ from kmk.extensions.media_keys import MediaKeys
 from kmk.modules.layers import Layers
 from kmk.modules.split import Split, SplitType, SplitSide
 from kmk.keys import KC
+from kmk.hid import HIDModes
+import supervisor
 
 keyboard = KMKKeyboard()
 keyboard.debug_enabled = True
-
 keyboard.modules.append(Layers())
 keyboard.extensions.append(MediaKeys())
 split = Split(split_type=SplitType.UART, split_side=keyboard.split_side, data_pin=board.GP1, data_pin2=board.GP0, use_pio=True, uart_flip=False)
 keyboard.modules.append(split)
 
-# fmt:off
+#keymap
 keyboard.keymap = [
     [
        KC.EQL,        KC.N1,         KC.N2,         KC.N3,         KC.N4,         KC.N5,                                                                      KC.N6,         KC.N7,         KC.N8,         KC.N9,         KC.N0,         KC.MINUS,
@@ -29,9 +30,15 @@ keyboard.keymap = [
        KC.CAPS,       KC.PLUS,       KC.EQL,        KC.LBRC,       KC.RBRC,       KC.G,          KC.HOME,                                       KC.PGDN,      KC.H,          KC.LEFT,       KC.DOWN,        KC.RIGHT,      KC.SCLN,       KC.QUOT,
        KC.LCTL,       KC.Z,          KC.X,          KC.MUTE,       KC.VOLD,       KC.VOLU,                                                                    KC.MRWD,       KC.MPLY,       KC.MFFD,        KC.DOT,        KC.SLSH,       KC.RSFT,
                       KC.LALT,       KC.LGUI,       KC.BSPC,       KC.CAPS,       KC.E,          KC.LBRC,        KC.EQL,          KC.EQL,       KC.RBRC,      KC.RALT,       KC.ENT,        KC.SPC,         KC.RGUI,       KC.RALT,
-   ]
+   ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
 ]
-# fmt:on
+#keymap
 
 if __name__ == '__main__':
-   keyboard.go()
+    keyboard.go(hid_type=HIDModes.USB)
